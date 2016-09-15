@@ -1,0 +1,28 @@
+{
+  "name": "Ventus",
+  "version": "0.2.1",
+  "repo": "rlamana/Ventus-Bower",
+  "description": "A window manager written in Javascript, HTML5 and CSS3",
+  "main": [
+    "ventus.css",
+    "ventus.js",
+    "ventus.min.js"
+  ],
+  "scripts": [
+    "ventus.js",
+    "ventus.min.js"
+  ],
+  "ignore": [
+    "README.md"
+  ],
+  "keywords": [
+    "window",
+    "manager",
+    "wm",
+    "expose",
+    "desktop",
+    "javascript",
+    "library"
+  ],
+  "license": "MIT"
+}

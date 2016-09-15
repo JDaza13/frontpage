@@ -1,0 +1,137 @@
+<!-- Login Modal -->
+<div class="modal fade" id="modalLogin" role="dialog">
+<div class="modal-dialog modal-sm">
+  <form ng-submit="Login($event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Bienvenido</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="inner-addon left-addon">
+              <i class="glyphicon glyphicon-user"></i>
+              <input 
+              type="text" 
+              class="form-control" 
+              id="usrname" 
+              placeholder="Ingrese su nick"
+              ng-model="Nickname"
+              required />
+          </div>
+        </div>
+          <a href="javascript:void(0);" ng-click="openRegisterModal();">¿Nuevo usuario?</a>
+          <a href="javascript:void(0);" ng-click="openRecoverModal();">¿Olvidó su usuario?</a>
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-success" type="submit">Ingresar</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="modalRegister" role="dialog">
+<div class="modal-dialog modal-sm">
+  <form ng-submit="Register($event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Nuevo Usuario</h4>
+      </div>
+      <div class="modal-body">
+              <div class="form-group">
+                <div class="text-center">
+                  <img src="{{RegData.Photo}}" class="imgChooser" ng-click="choosePhoto();"></img>
+                  <h4>Seleccione un archivo...</h4>
+                </div>
+                <div class="displayNone">
+                  <input type="file"
+                     tabindex="110"
+                     id="photoRegSelect"
+                     onchange="angular.element(this).scope().photoRegSelected()"
+                     accept="image/*">
+                  
+                </div>
+                <hr>
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Nickname"
+                    ng-model="RegData.Nick"
+                    required />
+                </div>
+                <div>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Nombres"
+                    ng-model="RegData.Nombre"
+                    required />
+                </div>
+                <div>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Apellidos"
+                    ng-model="RegData.Apellido"
+                    required />
+                </div>
+                <div>
+                    <input 
+                    type="email" 
+                    class="form-control" 
+                    placeholder="e-mail"
+                    ng-model="RegData.Email"
+                    required/>
+                </div>
+                <div>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Dirección"
+                    ng-model="RegData.Address"/>
+                </div>
+              </div>
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-success" type="submit">Registrar</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div> 
+
+<!-- Recover Modal -->
+<div class="modal fade" id="modalRecover" role="dialog">
+<div class="modal-dialog modal-sm">
+  <form ng-submit="Recover($event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Recuperar usuario</h4>
+      </div>
+      <div class="modal-body">
+              <div class="form-group">
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-envelope"></i>
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    id="usrname" 
+                    placeholder="e-mail registrado"
+                    ng-model="EmailRecover"
+                    required />
+                </div>
+              </div>
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-success" type="submit">Recuperar</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>

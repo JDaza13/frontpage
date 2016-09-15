@@ -1,0 +1,28 @@
+<div ng-controller="desktopController" ng-init="checkFullScreen()">
+    
+    <div class="desktopContent" ng-style="{'background-image':'url({{pathToBackground}})'}">>
+
+        <div class="navBar">
+          <div class="col-xs-6 col-sm-6 col-lg-6">
+            <h6 class="likeAnchor" ng-click="leftAccess();">{{loggedUserInfo}}</h6>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-lg-6">
+            <div class="navBarBtns text-right">
+                <a href="javascript:void(0);" ng-click="Logout();">
+                  <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                </a>
+                <a href="javascript:void(0);">
+                  <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                </a>
+                <a href="javascript:void(0);" ng-click="goFullScreen();">
+                  <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+
+  <div ng-include="pathToOptions"></div>
+    
+</div>
