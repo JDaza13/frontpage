@@ -9,7 +9,7 @@
 
         var credentials = $rootScope.globals.currentUser;
         var usrData = JSON.parse(localStorage.getItem("usrData"));
-        
+
         //console.log(usrData);
         
         if(credentials){
@@ -19,6 +19,10 @@
         else{
             $scope.loggedUserInfo = "Iniciar sesión";
             $scope.usrLogged = false;
+            $("#userInfo").addClass('likeAnchor');
+            $( "#userInfo" ).click(function() {
+                $("#modalLogin").modal('show');
+            });
         }
 
         $scope.goFullScreen = function(){
@@ -30,7 +34,7 @@
         $scope.Logout = function()
         {
             AuthenticationService.ClearCredentials();
-            location.reload("#/login")
+            location.reload("#/login");
         }
         /*
         //Obtener los Usuarios
