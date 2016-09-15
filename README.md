@@ -8,7 +8,7 @@ this server connects to a Mongo DataBase and provide a RESTful interface to CRUD
 
 - `server.js` is the main file of the project, you can run it with `node server.js`
 - Do not forget to generate the node modules, use `node install`
-- Do not forget to generate the bower components, use `node install` and then put them in the app folder
+- Do not forget to generate the bower components, use `bower install` and then put them in the app folder
 
 ## Build & development
 
