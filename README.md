@@ -3,7 +3,12 @@
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.15.1.
 
-server.js is the main file of the project, you can run it with 'node server.js'
+The project has a node.js server as backend, 
+this server connects to a Mongo DataBase and provide a RESTful interface to CRUD Data.
+
+- `server.js` is the main file of the project, you can run it with `node server.js`
+- Do not forget to generate the node modules, use `node install`
+- Do not forget to generate the bower components, use `node install` and then put them in the app folder
 
 ## Build & development
 
