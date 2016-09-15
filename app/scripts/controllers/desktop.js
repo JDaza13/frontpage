@@ -6,8 +6,7 @@
     function desktopController(Users,$scope,$rootScope, $location,$routeParams,AuthenticationService) {
         $scope.pathToBackground = "/images/ubuntu1.jpg";
         $scope.usrLogged = false;
-        $scope.pathToOptions = "views/empty.html";
-        
+
         var credentials = $rootScope.globals.currentUser;
         var usrData = JSON.parse(localStorage.getItem("usrData"));
         
@@ -27,16 +26,7 @@
                 screenfull.toggle();
             }
         }
-        
-        $scope.leftAccess = function(){
-            if ($scope.usrLogged) {
-                $scope.pathToOptions = "views/userInfo.html";
-            }
-            else{
-                $("#modalLogin").modal('show');
-            }
-        }
-        
+
         $scope.Logout = function()
         {
             AuthenticationService.ClearCredentials();
