@@ -14,8 +14,15 @@
         $scope.closeModalUserInfo = function(){
             $("#modalUserInfo").modal('hide');
         }
+        
+        $scope.openAboutModal = function(){
+            $("#modalAbout").modal('show');
+        }
 
-
+        $scope.closeModalAbout = function(){
+            $("#modalAbout").modal('hide');
+        }
+        
     }
 })();
 
