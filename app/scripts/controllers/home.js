@@ -22,7 +22,15 @@
         $scope.closeModalAbout = function(){
             $("#modalAbout").modal('hide');
         }
+        /*
+        var socket = io.connect();
+        socket.emit('broadcast', "Hola mundo!");
         
+        socket.on('serverSays', function(msg){
+            //alert(msg);
+        });
+        */
+
     }
 })();
 

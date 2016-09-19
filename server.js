@@ -28,7 +28,9 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
   
-
+  socket.on('broadcast', function(msg){
+    io.emit('serverSays',"from server: "+msg);
+  });
 
 });
 
