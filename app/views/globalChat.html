@@ -1,0 +1,18 @@
+<div id="globalChat" class="windowContent">
+    <div class="chatMsgs">
+        <h6 ng-repeat="x in messages">{{x}}</h6>
+    </div>
+    <hr>
+    <div class="chatInputDiv">
+        <form ng-submit="SendMsg();">
+          <div class="col-xs-10 col-sm-10 col-lg-10">
+            <input class="chatInput form-control" type="text" ng-model="inputMsg"/>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-lg-2">
+            <button type="sumbmit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-send"></span>
+            </button>
+          </div>
+        </form>
+    </div>
+</div>
