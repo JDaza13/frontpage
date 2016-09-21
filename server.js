@@ -29,8 +29,7 @@ io.on('connection', function(socket){
   });
   
   socket.on('broadcast', function(msg){
-    io.emit('serverSays',"from server: "+msg);
-    console.log(msg);
+    io.emit('serverSays',msg);
   });
 
 });
