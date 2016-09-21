@@ -1,4 +1,4 @@
-<div id="globalChat" class="windowContent displayNone">
+<div id="globalChat" class="windowContent displayNone" ng-init="defineChatWindow();">
     <div class="chatMsgs">
         <div class="message" ng-repeat="x in messages">
           <h5>{{x.Sender}}</h5>

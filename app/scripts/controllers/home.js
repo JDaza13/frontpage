@@ -6,9 +6,12 @@
     function homeController($scope,$rootScope, $location,$routeParams) {
 
         var vm = new Ventus.WindowManager();
+        $scope.gchatWindow = undefined;
         var width = $( window ).width();
         var height = $( window ).height();
         var socket = io.connect();
+        
+        
         
         $scope.usrData = JSON.parse(localStorage.getItem("usrData"));
         $scope.messages = [];
@@ -31,35 +34,34 @@
         }
         
         $scope.openGChatWindow = function(){
-            $('#globalChat').removeClass('displayNone');
-            if(gchatWindow == undefined){
-                var gchatWindow = vm.createWindow.fromQuery('#globalChat', {
-                    title: 'Sala General',
-                    classname: 'globalChatWindow',
-                    width: 2*(width/3),
-                    height: 3*(height/4),
-                    x: width/8,
-                    y: height/6,
-                    resizable: false,
-                    events: {
-                        open: function() {
-                            setTimeout(function(){ 
-                                $(".chatMsgs").animate({ scrollTop: $('.chatMsgs').prop("scrollHeight")}, 500);
-                            }, 500);
-                        }
-                    }
-                });
-                $('#globalChat').css("width",2*(width/3));
-                $('#globalChat').css("height",3*(height/4));
-                gchatWindow.open();
-                //$( "#globalChat" ).parent();
-            }
-            else{
-                gchatWindow.destroy();
-                gchatWindow.open();
-            }
-            
+                $scope.gchatWindow.open();
         }
+        
+        $scope.defineChatWindow = function () {
+            $('#globalChat').removeClass('displayNone');
+            $scope.gchatWindow = vm.createWindow.fromQuery('#globalChat', {
+                title: 'Sala General',
+                classname: 'globalChatWindow',
+                width: 2*(width/3),
+                height: 5*(height/6),
+                x: width/6,
+                y: height/8,
+                resizable: false,
+                events: {
+                    open: function() {
+                        setTimeout(function(){ 
+                            $(".chatMsgs").animate({ scrollTop: $('.chatMsgs').prop("scrollHeight")}, 500);
+                            $(".chatInput").focus();
+                        }, 500);
+                    }
+                }
+            });
+            
+            $('#globalChat').css("width",2*(width/3));
+            $('#globalChat').css("height",5*(height/6));
+        }
+        
+
         
         $scope.SendMsg = function () {
             var nick = $scope.usrData.Nombre;
