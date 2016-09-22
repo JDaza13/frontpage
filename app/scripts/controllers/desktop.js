@@ -36,18 +36,7 @@
             AuthenticationService.ClearCredentials();
             location.reload("#/login");
         }
-        /*
-        //Obtener los Usuarios
-        Users.ObtenerUsuarios()
-           .$promise
-               .then(function (response) {
-                    console.log(response);
-                })
-               .catch(function (response) {
-                    console.log(response); 
-                });
-        */
-        
+
     }
 })();
 

@@ -109,10 +109,16 @@
   height:1px;
   min-height:200px;
 }
-
-.chatMsgs{
+.MsgAndContacts{
   height:80%;
+}
+.chatMsgs{
   overflow-y:auto;
+  height:120%;
+}
+.contacts{
+  overflow-y:auto;
+  height:120%;
 }
 .chatInputDiv{
   width: 100%;
@@ -130,6 +136,28 @@
   margin-top: 2px !important;
   margin-bottom: 2px !important;
 }
+.chatMsgs p{
+  font-size: 80%;
+}
+.chatMsgs h4{
+  font-size: 90%;
+  font-weight: bold;
+}
+
+.contact {
+  align-items:center;
+}
+
+.contact hr{
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.contact img{
+
+}
+
+
 
 /*Styles for scrollbars*/
 ::-webkit-scrollbar

@@ -2,8 +2,8 @@
     //'use strict';
     var controller = app.controller('homeController', homeController);
 
-    homeController.$inject = ['$scope','$rootScope', '$location','$routeParams'];
-    function homeController($scope,$rootScope, $location,$routeParams) {
+    homeController.$inject = ['Users','$scope','$rootScope', '$location','$routeParams'];
+    function homeController(Users,$scope,$rootScope, $location,$routeParams) {
 
         var vm = new Ventus.WindowManager();
         $scope.gchatWindow = undefined;
@@ -16,6 +16,18 @@
         $scope.usrData = JSON.parse(localStorage.getItem("usrData"));
         $scope.messages = [];
         $scope.inputMsg = "";
+        
+        $scope.contacts = [];
+        
+        //Obtener los Usuarios
+        Users.ObtenerUsuarios()
+           .$promise
+               .then(function (response) {
+                    $scope.contacts = response.Users;
+                })
+               .catch(function (response) {
+                    console.log(response); 
+                });
 
         $scope.openUserInfoModal = function(){
             $("#modalUserInfo").modal('show');
