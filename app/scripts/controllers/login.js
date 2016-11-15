@@ -2,9 +2,9 @@
     //'use strict';
     var controller = app.controller('loginController', loginController);
 
-    loginController.$inject = ['Auth','Users','GEO','$scope','$rootScope', '$location','$routeParams','AuthenticationService'];
-    function loginController(Auth,Users,GEO,$scope,$rootScope, $location,$routeParams,AuthenticationService) {
-        $("#modalLogin").modal('show');
+    loginController.$inject = ['Auth','Users','GEO','generalConstructor','$scope','$rootScope', '$location','$routeParams','AuthenticationService'];
+    function loginController(Auth,Users,GEO,generalConstructor,$scope,$rootScope, $location,$routeParams,AuthenticationService) {
+        
         $scope.Nickname = "";
         $scope.RegData = {
             _id: null,
@@ -28,20 +28,8 @@
                     toastr.error(response.Msg);
                 }
             });
-            
         }
-        
-        $scope.openRegisterModal = function () {
-            $("#modalLogin").modal('hide');
-            $("#modalRegister").modal('show');
-            $scope.getGEOInfo();
-            
-        }
-        
-        $scope.openRecoverModal = function () {
-            $("#modalLogin").modal('hide');
-            $("#modalRecover").modal('show');
-        }
+
 
         $scope.Register = function (e) {
             var obj = {
@@ -64,7 +52,7 @@
                     Email: $scope.EmailRecover
                 }
             };
-            //Registrar el usuario
+            //Obtener el usuario
             Auth.RecuperarUsuario(obj)
                .$promise
                    .then(function (response) {
@@ -106,6 +94,11 @@
                         
               });
         }
+        
+        /*Example for modals with constructor here*/
+        generalConstructor.modals($scope);
+        /*End of constructor example*/
+        $scope.openModal('modalLogin');
         
         $scope.photoRegSelected = function () {
             var file = document.getElementById("photoRegSelect").files[0];

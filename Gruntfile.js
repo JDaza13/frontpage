@@ -295,6 +295,14 @@ module.exports = function (grunt) {
     // concat: {
     //   dist: {}
     // },
+    uglify: {
+      my_target: {
+        files: {
+          'dist/controller.min.js': ['app/scripts/**/*.js']
+        }
+      }
+    },
+    
 
     imagemin: {
       dist: {

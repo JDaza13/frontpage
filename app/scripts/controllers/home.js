@@ -2,8 +2,8 @@
     //'use strict';
     var controller = app.controller('homeController', homeController);
 
-    homeController.$inject = ['Users','$scope','$rootScope', '$location','$routeParams'];
-    function homeController(Users,$scope,$rootScope, $location,$routeParams) {
+    homeController.$inject = ['Users','generalConstructor','$scope','$rootScope', '$location','$window','$routeParams'];
+    function homeController(Users,generalConstructor,$scope,$rootScope, $location,$window,$routeParams) {
 
         var vm = new Ventus.WindowManager();
         $scope.gchatWindow = undefined;
@@ -11,10 +11,17 @@
         var height = $( window ).height();
         var socket = io.connect();
         
+        /*Example for modals with constructor here*/
+        generalConstructor.modals($scope);
+        /*End of constructor example*/
         
+        var favicon=new Favico({
+            animation:'slide'
+        });
         
         $scope.usrData = JSON.parse(localStorage.getItem("usrData"));
         $scope.messages = [];
+        $scope.blurMsgs = [];
         $scope.inputMsg = "";
         
         $scope.contacts = [];
@@ -28,22 +35,6 @@
                .catch(function (response) {
                     console.log(response); 
                 });
-
-        $scope.openUserInfoModal = function(){
-            $("#modalUserInfo").modal('show');
-        }
-        
-        $scope.closeModalUserInfo = function(){
-            $("#modalUserInfo").modal('hide');
-        }
-        
-        $scope.openAboutModal = function(){
-            $("#modalAbout").modal('show');
-        }
-
-        $scope.closeModalAbout = function(){
-            $("#modalAbout").modal('hide');
-        }
         
         $scope.openGChatWindow = function(){
                 $scope.gchatWindow.open();
@@ -97,7 +88,17 @@
             $scope.messages.push(msg);
             $scope.$apply();
             $('.chatMsgs').scrollTop($('.chatMsgs')[0].scrollHeight);
+            
+            var msgSize = $scope.messages.length;
+            favicon.badge(msgSize);
         });
+        
+        $window.onfocus = function(){
+            console.log("focused");
+        }
+        $window.onblur = function(){
+            console.log("blured");
+        }
 
     }
 })();
