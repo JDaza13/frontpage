@@ -1,0 +1,12 @@
+{
+    "scripts": [
+        "<%= yeoman.app %>/scripts/app.js",
+        "<%= yeoman.app %>/scripts/route.js",
+        "<%= yeoman.app %>/scripts/auth.js",
+        "<%= yeoman.app %>/scripts/controllers/login.js",
+        "<%= yeoman.app %>/scripts/controllers/register.js",
+        "<%= yeoman.app %>/scripts/controllers/desktop.js",
+        "<%= yeoman.app %>/scripts/controllers/home.js",
+        "<%= yeoman.app %>/scripts/controllers/userInfo.js"
+    ]
+}

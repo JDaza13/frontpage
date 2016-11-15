@@ -1,0 +1,23 @@
+{
+    "scripts": [
+        "<%= yeoman.app %>/bower_components/jquery/dist/jquery.js",
+        "<%= yeoman.app %>/bower_components/angular/angular.js",
+        "<%= yeoman.app %>/bower_components/bootstrap/dist/js/bootstrap.min.js",
+        "<%= yeoman.app %>/bower_components/angular-animate/angular-animate.js",
+        "<%= yeoman.app %>/bower_components/angular-cookies/angular-cookies.js",
+        "<%= yeoman.app %>/bower_components/angular-resource/angular-resource.js",
+        "<%= yeoman.app %>/bower_components/angular-route/angular-route.js",
+        "<%= yeoman.app %>/bower_components/angular-sanitize/angular-sanitize.js",
+        "<%= yeoman.app %>/bower_components/angular-touch/angular-touch.js",
+        "<%= yeoman.app %>/bower_components/screenfull/dist/screenfull.min.js",
+        "<%= yeoman.app %>/bower_components/Ventus/ventus.js",
+        "<%= yeoman.app %>/bower_components/Ventus/ventus.min.js",
+        "<%= yeoman.app %>/bower_components/toastr/toastr.js",
+        "<%= yeoman.app %>/bower_components/moment/moment.js",
+        "<%= yeoman.app %>/bower_components/favico.js/favico-0.3.10.min.js",
+        "<%= yeoman.app %>/bower_components/less/dist/less.js"
+    ]
+}
+
+
+

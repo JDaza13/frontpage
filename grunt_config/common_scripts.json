@@ -1,0 +1,10 @@
+{
+    "scripts": [
+        "<%= yeoman.app %>/scripts/common/common.services.js",
+        "<%= yeoman.app %>/scripts/common/resource.services.js",
+        "<%= yeoman.app %>/scripts/common/constructor.js"
+    ]
+}
+
+
+
