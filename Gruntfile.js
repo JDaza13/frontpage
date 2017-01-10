@@ -22,22 +22,46 @@ module.exports = function(grunt) {
         },
         concat: {
             options: {
-              separator: '/* Separator */',
+              separator: '\n\n/* Separator */\n\n',
             },
             dist: {
-              src: vendorScripts.scripts,
-              dest: '<%= yeoman.dist %>/scripts/vendor.js',
+                files: [
+                    {
+                        src: vendorScripts.scripts,
+                        dest: '<%= yeoman.dist %>/scripts/vendor.js'
+                    },
+                    {
+                        src: commonScripts.scripts,
+                        dest: '<%= yeoman.dist %>/scripts/common.js'
+                    },
+                    {
+                        src: angularScripts.scripts,
+                        dest: '<%= yeoman.dist %>/scripts/angularScripts.js'
+                    }
+                ]
             },
         },
         uglify: {
             options: {
                 compress: {},
-                mangle: true,
-                sourceMap: true
+                mangle: false,
+                sourceMap: false
             },
             target: {
-                src: '<%= yeoman.dist %>/scripts/vendor.js',
-                dest: '<%= yeoman.dist %>/scripts/vendor.min.js'
+                files: [
+                    {
+                        src: vendorScripts.scripts,
+                        dest: '<%= yeoman.dist %>/scripts/vendor.min.js'
+                    },
+                    {
+                        src: commonScripts.scripts,
+                        dest: '<%= yeoman.dist %>/scripts/common.min.js'
+                    },
+                    {
+                        src: angularScripts.scripts,
+                        dest: '<%= yeoman.dist %>/scripts/angularScripts.min.js'
+                    }
+                ]
             }
         }
     });
@@ -47,8 +71,12 @@ module.exports = function(grunt) {
 
     //Group tasks for execution in production
     grunt.registerTask('build_production', [
-        'concat',
         'uglify'
+    ]);
+    
+    //Group tasks for execution in development
+    grunt.registerTask('build_development', [
+        'concat'
     ]);
 
   // Default task(s).

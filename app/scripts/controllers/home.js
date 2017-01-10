@@ -11,6 +11,10 @@
         var height = $( window ).height();
         var socket = io.connect();
         
+        $scope.windowStatus = true;
+        $scope.windowNotVisible = false;
+        $scope.unSeenMsg = 0;
+        
         /*Example for modals with constructor here*/
         generalConstructor.modals($scope);
         /*End of constructor example*/
@@ -74,30 +78,44 @@
             var obj = {
                 Sender: nick,
                 Msg: msg,
-                Date: now
+                Date: now,
+                Type: 'msg'
             };
             
             if(this.inputMsg != ""){
                 socket.emit('broadcast', obj);
                 this.inputMsg = "";
+                
+            	$scope.messages = $scope.messages.filter(function(obj){
+            		return obj.Type == 'msg';
+            	});
             }
         }
         
         
         socket.on('serverSays', function(msg){
+            if(!$scope.windowStatus){
+                $scope.unSeenMsg++;
+                favicon.badge($scope.unSeenMsg);
+                if(!$scope.windowNotVisible){
+                    $scope.windowNotVisible = true;
+                    $scope.messages.push({Type: 'separator'});
+                }
+            }
+            
             $scope.messages.push(msg);
             $scope.$apply();
             $('.chatMsgs').scrollTop($('.chatMsgs')[0].scrollHeight);
-            
-            var msgSize = $scope.messages.length;
-            favicon.badge(msgSize);
         });
         
         $window.onfocus = function(){
-            console.log("focused");
+            $scope.windowStatus = true;
+            $scope.unSeenMsg = 0;
+            favicon.badge($scope.unSeenMsg);
+            $scope.windowNotVisible = false;
         }
         $window.onblur = function(){
-            console.log("blured");
+            $scope.windowStatus = false;
         }
 
     }

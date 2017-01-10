@@ -46,29 +46,19 @@
        ga('send', 'pageview');
     </script>
     
-    <!-- Vendor Scripts -->
+    <!-- minified Scripts -->
+    
     <script src="dist/scripts/vendor.min.js"></script>
+    <script src="dist/scripts/angularScripts.min.js"></script>
+    <script src="dist/scripts/common.min.js"></script>
+    
+    <!-- unminified Scripts -->
+    <!--
+    <script src="dist/scripts/vendor.js"></script>
+    <script src="dist/scripts/angularScripts.js"></script>
+    <script src="dist/scripts/common.js"></script>
+    -->
 
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-
-        <script src="scripts/app.js"></script>
-        <script src="scripts/route.js"></script>
-        <script src="scripts/auth.js"></script>
-
-        <script src="scripts/common/common.services.js"></script>
-        <script src="scripts/common/resource.services.js"></script>
-        <script src="scripts/common/constructor.js"></script>
-            
-        <script src="scripts/controllers/login.js"></script>
-        <script src="scripts/controllers/register.js"></script>
-        <script src="scripts/controllers/desktop.js"></script>
-        <script src="scripts/controllers/home.js"></script>
-        <script src="scripts/controllers/userInfo.js"></script>
-        <!--
-        <script src="scripts/controller.min.js"></script>
-        -->
-        <!-- endbuild -->
     <!-- Socket io-->
     <script src="/socket.io/socket.io.js"></script>
 </body>
